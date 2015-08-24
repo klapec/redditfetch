@@ -1,0 +1,54 @@
+{
+  "name": "RedditFetch",
+  "version": "0.1.0",
+  "description": "Reddit image gallery",
+  "private": true,
+  "main": "./src/index.html",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register"
+  },
+  "author": "Andrzej Kłapeć",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klapec/redditfetch.git"
+  },
+  "dependencies": {
+    "babel-core": "^5.8.22",
+    "lodash.unescape": "^3.0.0",
+    "react": "^0.13.3",
+    "reflux": "^0.2.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^5.2.0",
+    "babelify": "^6.2.0",
+    "browser-sync": "^2.8.2",
+    "browserify": "^11.0.1",
+    "chai": "^3.2.0",
+    "css-mqpacker": "^3.1.0",
+    "cssnano": "^2.6.1",
+    "gulp": "^3.9.0",
+    "gulp-cssnano": "^1.1.0",
+    "gulp-if": "^1.2.5",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^5.1.10",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "jsdom": "^6.1.0",
+    "lodash.assign": "^3.2.0",
+    "lost": "^6.5.0",
+    "mocha": "^2.2.5",
+    "postcss-for": "^1.1.0",
+    "postcss-import": "^6.2.0",
+    "postcss-mixins": "^0.4.0",
+    "postcss-nested": "^0.3.1",
+    "postcss-simple-vars": "^0.3.0",
+    "run-sequence": "^1.1.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
+  }
+}

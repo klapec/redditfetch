@@ -1,0 +1,28 @@
+$font-family: 'Open Sans', sans-serif;
+
+$font-size-base: 1em;
+$font-size-h1: 1.8em;
+$font-size-small: .8em;
+
+$line-height-base: 1.5;
+
+$color-green: rgba(98, 164, 78, 1);
+$color-gray: rgba(159, 159, 159, 1);
+$color-yellow: rgba(243, 151, 45, 1);
+$color-magenta: rgba(147, 84, 177, 1);
+$color-blue: rgba(71, 165, 241, 1);
+
+$color-primary-light: rgba(255, 255, 255, 1);
+$color-primary-middle: rgba(0, 0, 0, 0.5);
+$color-primary-dark: rgba(0, 0, 0, 0.8);
+
+$color-background: $color-primary-light;
+$color-text-primary: $color-primary-dark;
+$color-text-secondary: $color-primary-middle;
+$color-text-accent: $color-blue;
+
+$color-category-1: $color-green;
+$color-category-2: $color-gray;
+$color-category-3: $color-yellow;
+$color-category-4: $color-magenta;
+$color-category-5: $color-blue;

@@ -1,0 +1,36 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: $color-background;
+  color: $color-text-primary;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  overflow-x: hidden;
+}
+
+a {
+  color: $color-text-primary;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px dotted black;
+  }
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

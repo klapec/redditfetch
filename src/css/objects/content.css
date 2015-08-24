@@ -1,0 +1,91 @@
+.content {
+  lost-column: 5/6;
+  position: relative;
+}
+
+.site-overlay {
+  display: none;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+.post-list {
+  width: 100%;
+  padding: 1em;
+  padding-left: 0;
+  lost-utility: clearfix;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    lost-column: 1/1;
+    padding-left: 1em;
+    overflow-x: hidden;
+
+    &.menu-active {
+      lost-column: 5/6;
+      transform: translate3d(6em,0,0);
+    }
+  }
+
+  .sidebar, .content {
+    transition: transform .2s cubic-bezier(.16, .68, .43, .99);
+  }
+
+  body.menu-active .site-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.menu {
+  display: none;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  left: -2em;
+  cursor: pointer;
+}
+
+.menu-icon {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  top: 9px;
+  background-color: $color-primary-dark;
+
+  &::before, &::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-primary-dark;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    top: 5px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    display: block;
+    margin-left: 2em;
+  }
+}

@@ -1,0 +1,18 @@
+.sidebar {
+  lost-column: 1/6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: none;
+    transform: translate3d(-13em, 0, 0);
+
+    &.menu-active {
+      display: flex;
+      transform: translate3d(0,0,0);
+    }
+  }
+}

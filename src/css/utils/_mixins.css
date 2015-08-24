@@ -1,0 +1,7 @@
+@define-mixin category-border {
+  @for $i from 1 to 5 {
+    .category:nth-of-type($i) {
+      border-left: 4px solid $color-category-$(i);
+    }
+  }
+}
