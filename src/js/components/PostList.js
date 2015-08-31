@@ -7,14 +7,14 @@ import fetchItems from '../utils/fetchItems';
 
 const PostList = React.createClass({
   propTypes: {
-    category: React.PropTypes.string.isRequired
+    initialCategory: React.PropTypes.string.isRequired
   },
 
   mixins: [Reflux.listenTo(Store, 'onCategoryChange')],
 
   getInitialState() {
     return {
-      category: this.props.category,
+      category: this.props.initialCategory,
       items: []
     };
   },
@@ -52,7 +52,6 @@ const PostList = React.createClass({
   },
 
   render() {
-    const items = this.state.items;
     return (
       <main className="content">
         <div className="site-overlay" onClick={this.onMenuToggle}></div>
@@ -63,23 +62,27 @@ const PostList = React.createClass({
           <h1 className="site-title">RedditFetch</h1>
         </header>
         <section className="post-list">
-          {items.map(item => {
+          {this.state.items.map(item => {
             if (!item.preview) {
               return null;
             }
             const availableResolutions = item.preview.images[0].resolutions.length;
             let postBackground;
-            if (availableResolutions > 3) {
-              postBackground = unescape(item.preview.images[0].resolutions[3].url);
-            } else {
-              postBackground = unescape(item.preview.images[0].source.url);
-            }
+
+            availableResolutions > 3
+              ? postBackground = unescape(item.preview.images[0].resolutions[3].url)
+              : postBackground = unescape(item.preview.images[0].source.url);
 
             const postStyle = {
               backgroundImage: `url(${postBackground})`
             };
             return (
-              <Post key={item.id} postImage={postStyle} postTitle={item.title} postUrl={item.url} postDate={new Date(item.created * 1000).toUTCString()} postScore={item.score}/>
+              <Post key={item.id}
+                    postImage={postStyle}
+                    postTitle={item.title}
+                    postUrl={item.url}
+                    postDate={new Date(item.created * 1000).toUTCString()}
+                    postScore={item.score}/>
             );
           })}
         </section>

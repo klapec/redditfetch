@@ -7,16 +7,21 @@ import PostList from './components/PostList';
 const App = React.createClass({
   getInitialState() {
     return {
-      currentCategory: Store.getDefaultCategory(),
-      categoryList: Store.getDefaultCategoryList()
+      currentCategory: '',
+      categoryList: []
     };
+  },
+
+  componentWillMount() {
+    this.setState({ currentCategory: Store.getDefaultCategory() });
+    this.setState({ categoryList: Store.getDefaultCategoryList() });
   },
 
   render() {
     return (
-      <div className="container" >
-        <Sidebar categories={this.state.categoryList} active={this.state.currentCategory}/>
-        <PostList category={this.state.currentCategory}/>
+      <div className="container">
+        <Sidebar categories={this.state.categoryList} initialActiveCategory={this.state.currentCategory}/>
+        <PostList initialCategory={this.state.currentCategory}/>
       </div>
     );
   }
