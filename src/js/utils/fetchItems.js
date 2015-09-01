@@ -1,4 +1,4 @@
-const fetchItems = function fetchItems(category) {
+export default function fetchItems(category) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     const url = `https://www.reddit.com/r/${category.replace(/\s/, '')}Porn.json`;
@@ -9,7 +9,6 @@ const fetchItems = function fetchItems(category) {
         const items = res.data.children.map(v => {
           return v.data;
         });
-        items.shift();
         resolve(items);
       } else {
         reject(Error('Error'));
@@ -21,6 +20,4 @@ const fetchItems = function fetchItems(category) {
     xhr.open('get', url, true);
     xhr.send();
   });
-};
-
-export default fetchItems;
+}

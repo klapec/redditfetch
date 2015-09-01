@@ -31,16 +31,6 @@ const PostList = React.createClass({
       });
   },
 
-  onMenuToggle() {
-    const body = document.querySelector('body');
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-
-    body.classList.toggle('menu-active');
-    sidebar.classList.toggle('menu-active');
-    content.classList.toggle('menu-active');
-  },
-
   onCategoryChange(category) {
     fetchItems(category)
       .then(items => {
@@ -51,26 +41,40 @@ const PostList = React.createClass({
       });
   },
 
+  handleMenuToggle() {
+    const body = document.querySelector('body');
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+
+    body.classList.toggle('menu-active');
+    sidebar.classList.toggle('menu-active');
+    content.classList.toggle('menu-active');
+  },
+
   render() {
     return (
       <main className="content">
-        <div className="site-overlay" onClick={this.onMenuToggle}></div>
+        <div className="site-overlay" onClick={this.handleMenuToggle}></div>
         <header className="site-header">
-          <div className="menu" onClick={this.onMenuToggle}>
+          <div className="menu" onClick={this.handleMenuToggle}>
             <span className="menu-icon"></span>
           </div>
           <h1 className="site-title">RedditFetch</h1>
         </header>
         <section className="post-list">
           {this.state.items.map(item => {
+            // Exclude all the self-posts and those without an image
             if (!item.preview) {
               return null;
             }
+            // Check how many preview images are available
             const availableResolutions = item.preview.images[0].resolutions.length;
             let postBackground;
 
-            availableResolutions > 3
+            availableResolutions >= 4
+              // We need to use the fourth preview image as it's 640px wide
               ? postBackground = unescape(item.preview.images[0].resolutions[3].url)
+              // if it does not exist, use the source image
               : postBackground = unescape(item.preview.images[0].source.url);
 
             const postStyle = {
